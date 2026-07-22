@@ -272,6 +272,7 @@ function buildMotoCard(moto) {
   const title = `Keller ${moto.model || ""} ${moto.version || ""}`.trim();
   const image = moto.images && moto.images.length ? moto.images[0].url : "";
   const altText = (moto.images && moto.images[0] && moto.images[0].altText) || title;
+  const detailUrl = moto.urlSlug ? `modelos/${moto.urlSlug}/index.html` : "modelos.html";
 
   const card = document.createElement("article");
   card.className = "product-card";
@@ -282,7 +283,7 @@ function buildMotoCard(moto) {
       <span class="product-badge">${moto.segment || moto.type || ""}</span>
     </div>
     <div class="product-body">
-      <h3>${title}</h3>
+      <h3><a href="${detailUrl}">${title}</a></h3>
       <p class="product-desc">${moto.shortDescription || ""}</p>
       <div class="meta">
         <span><strong>Motor:</strong> ${moto.engine || "-"} (${moto.displacement || "-"})</span>
@@ -290,17 +291,7 @@ function buildMotoCard(moto) {
         <span><strong>Autonomía:</strong> ${moto.autonomy || "-"}</span>
         <span><strong>Peso:</strong> ${moto.weight ? `${moto.weight} kg` : "-"}</span>
       </div>
-      <details class="product-details">
-        <summary>Ver ficha técnica completa</summary>
-        <p>${moto.longDescription || ""}</p>
-        <div class="meta">
-          <span><strong>Largo:</strong> ${moto.length ? `${moto.length} mm` : "-"}</span>
-          <span><strong>Alto:</strong> ${moto.height ? `${moto.height} mm` : "-"}</span>
-          <span><strong>Ancho:</strong> ${moto.width ? `${moto.width} mm` : "-"}</span>
-          <span><strong>Altura libre al piso:</strong> ${moto.groundClearance ? `${moto.groundClearance} mm` : "-"}</span>
-          <span><strong>Batería:</strong> ${moto.battery || "-"}</span>
-        </div>
-      </details>
+      <a class="product-link" href="${detailUrl}">Ver ficha técnica completa</a>
     </div>
     <div class="product-actions">
       <a class="button" href="credito.html">Simular crédito</a>

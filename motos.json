@@ -24,6 +24,7 @@
     "createdAt": "2026-07-22T00:00:04.970Z",
     "updatedAt": "2026-07-22T00:00:04.970Z",
     "slug": "keller-crono-110-eco-100500",
+    "urlSlug": "crono-110-eco",
     "images": [
       {
         "id": 238614,
@@ -152,6 +153,7 @@
     "createdAt": "2026-07-22T00:00:05.116Z",
     "updatedAt": "2026-07-22T00:00:05.116Z",
     "slug": "keller-crono-110-full-100504",
+    "urlSlug": "crono-110-full",
     "images": [
       {
         "id": 238624,
@@ -290,6 +292,7 @@
     "createdAt": "2026-07-22T00:00:05.186Z",
     "updatedAt": "2026-07-22T00:00:05.186Z",
     "slug": "keller-crono-125-tuning-100507",
+    "urlSlug": "crono-125-tuning",
     "images": [
       {
         "id": 238472,
@@ -368,6 +371,7 @@
     "createdAt": "2026-07-22T00:00:04.996Z",
     "updatedAt": "2026-07-22T00:00:04.996Z",
     "slug": "keller-miracle-150-100501",
+    "urlSlug": "miracle-150",
     "images": [
       {
         "id": 238470,
@@ -436,6 +440,7 @@
     "createdAt": "2026-07-22T00:00:05.046Z",
     "updatedAt": "2026-07-22T00:00:05.046Z",
     "slug": "keller-stratus-150-100502",
+    "urlSlug": "stratus-150",
     "images": [
       {
         "id": 238471,
@@ -524,6 +529,7 @@
     "createdAt": "2026-07-22T00:00:05.082Z",
     "updatedAt": "2026-07-22T00:00:05.082Z",
     "slug": "keller-stratus-150-full-100503",
+    "urlSlug": "stratus-150-full",
     "images": [
       {
         "id": 238622,
@@ -612,6 +618,7 @@
     "createdAt": "2026-07-22T00:00:05.226Z",
     "updatedAt": "2026-07-22T00:00:05.226Z",
     "slug": "keller-sygnus-150-100508",
+    "urlSlug": "sygnus-150",
     "images": [
       {
         "id": 238629,
@@ -710,6 +717,7 @@
     "createdAt": "2026-07-22T00:00:05.149Z",
     "updatedAt": "2026-07-22T00:00:05.149Z",
     "slug": "keller-miracle-200-100505",
+    "urlSlug": "miracle-200",
     "images": [
       {
         "id": 238627,
@@ -747,8 +755,8 @@
     "id": 46490,
     "sku": 100509,
     "name": "keller_quasar_250",
-    "brand": "keller",
-    "model": "quasar",
+    "brand": "Keller",
+    "model": "Quasar",
     "version": "250",
     "type": "ON OFF",
     "segment": "ON OFF",
@@ -763,11 +771,12 @@
     "width": 1200,
     "groundClearance": 800,
     "weight": 123,
-    "shortDescription": "keller quasar 250. Precio de la keller quasar financiada. Stock disponible con entrega inmediata.",
+    "shortDescription": "Keller Quasar 250. Precio de la Keller Quasar financiada. Stock disponible con entrega inmediata.",
     "longDescription": "La Keller Quasar 250 es una on-off de mayor cilindrada, pensada para quien busca potencia y aguante tanto en la ciudad como en la aventura. Su motor monocilíndrico de 250 cc, 4 tiempos y refrigerado por aire (con balanceador para un andar más suave) entrega cerca de 19 HP y alcanza los 110 km/h, con caja de 5 velocidades por cadena y embrague multidisco en baño de aceite. Su bastidor tubular reforzado, la horquilla telescópica de 41 mm, el freno a disco en ambas ruedas y el rodado alto (rueda delantera de 21\") la hacen firme en el asfalto y capaz en la tierra. Suma baúl trasero para llevar tus cosas. Es la elección para quien quiere una enduro grande y versátil. En Motozuni la financiás en cuotas, con patentamiento y service Keller cerca tuyo.",
     "createdAt": "2026-07-22T00:00:06.709Z",
     "updatedAt": "2026-07-22T00:00:06.709Z",
     "slug": "keller-quasar-250-100509",
+    "urlSlug": "quasar-250",
     "images": [
       {
         "id": 239524,

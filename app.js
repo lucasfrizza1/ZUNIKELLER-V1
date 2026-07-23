@@ -88,6 +88,19 @@ async function loadFeaturedMotos() {
   return motos.filter((m) => (m.brand || "").trim().toLowerCase() === "keller");
 }
 
+// Preferimos siempre una foto de costado (perfil): la API puede traer las
+// imágenes en cualquier orden y una foto de frente se ve rota en el hero y
+// en las cards, que están recortadas para una moto vista de perfil.
+function pickPreferredImage(images) {
+  if (!Array.isArray(images) || !images.length) return null;
+  const priority = ["PDER", "PIZQ", "SPDER"];
+  for (const pos of priority) {
+    const match = images.find((img) => (img.position || "").toUpperCase() === pos);
+    if (match) return match;
+  }
+  return images[0];
+}
+
 function initHeroCarousel(container) {
   const eyebrowEl = container.querySelector(".hero-eyebrow");
   const titleEl = container.querySelector(".hero-text h1");
@@ -145,12 +158,15 @@ function initHeroCarousel(container) {
     .then((motos) => {
       if (!motos.length) return;
 
-      slides = motos.slice(0, 5).map((m) => ({
-        eyebrow: `Modelo destacado · ${m.segment || m.type || "Keller"}`,
-        title: `Keller ${m.model || ""} ${m.version || ""}`.trim(),
-        sub: m.shortDescription || "",
-        image: m.images && m.images[0] ? m.images[0].url : "",
-      }));
+      slides = motos.slice(0, 5).map((m) => {
+        const primary = pickPreferredImage(m.images);
+        return {
+          eyebrow: `Modelo destacado · ${m.segment || m.type || "Keller"}`,
+          title: `Keller ${m.model || ""} ${m.version || ""}`.trim(),
+          sub: m.shortDescription || "",
+          image: primary ? primary.url : "",
+        };
+      });
 
       dotsWrap.innerHTML = slides
         .map((_, i) => `<button aria-label="Ver modelo ${i + 1}"></button>`)
@@ -270,8 +286,9 @@ function renderMotos(list, motos) {
 
 function buildMotoCard(moto) {
   const title = `Keller ${moto.model || ""} ${moto.version || ""}`.trim();
-  const image = moto.images && moto.images.length ? moto.images[0].url : "";
-  const altText = (moto.images && moto.images[0] && moto.images[0].altText) || title;
+  const primaryImage = pickPreferredImage(moto.images);
+  const image = primaryImage ? primaryImage.url : "";
+  const altText = primaryImage?.altText || title;
   const detailUrl = moto.urlSlug ? `modelos/${moto.urlSlug}/index.html` : "modelos.html";
 
   const card = document.createElement("article");
@@ -294,7 +311,7 @@ function buildMotoCard(moto) {
       <a class="product-link" href="${detailUrl}">Ver ficha técnica completa</a>
     </div>
     <div class="product-actions">
-      <a class="button" href="credito.html">Simular crédito</a>
+      <a class="button" href="credito.html#formulario">Simular crédito</a>
       <a class="link-button" data-whatsapp-link data-whatsapp-message="Quiero consultar por la ${title}" href="#">Consultar por WhatsApp</a>
     </div>
   `;

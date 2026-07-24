@@ -340,10 +340,10 @@ function buildMotoCard(moto) {
   card.className = "product-card";
 
   card.innerHTML = `
-    <div class="product-media">
+    <a class="product-media" href="${detailUrl}">
       ${image ? `<img src="${image}" alt="${altText}" loading="lazy">` : '<div class="product-media-placeholder">Sin imagen</div>'}
       <span class="product-badge">${moto.segment || moto.type || ""}</span>
-    </div>
+    </a>
     <div class="product-body">
       <h3><a href="${detailUrl}">${title}</a></h3>
       <p class="product-desc">${moto.shortDescription || ""}</p>

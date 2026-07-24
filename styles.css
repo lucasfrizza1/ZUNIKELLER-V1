@@ -775,6 +775,7 @@ textarea {
 
 .product-media {
   position: relative;
+  display: block;
   aspect-ratio: 4 / 3;
   background: var(--grey-100);
 }

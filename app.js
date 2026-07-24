@@ -29,7 +29,38 @@ document.addEventListener("DOMContentLoaded", () => {
   if (branchSearch) {
     initBranchSearch(branchSearch);
   }
+
+  const modelGallery = document.querySelector(".model-gallery");
+  if (modelGallery) {
+    initModelGallery(modelGallery);
+  }
 });
+
+function initModelGallery(gallery) {
+  const mainImg = gallery.querySelector(".model-gallery-main img");
+  const thumbs = Array.from(gallery.querySelectorAll(".model-gallery-thumbs img"));
+  if (!mainImg || !thumbs.length) return;
+
+  // La foto principal cuenta como slide 0; cada thumbnail es slide 1..n.
+  const slides = [{ src: mainImg.src, alt: mainImg.alt }, ...thumbs.map((t) => ({ src: t.src, alt: t.alt }))];
+  let current = 0;
+
+  function paint(index) {
+    current = ((index % slides.length) + slides.length) % slides.length;
+    const slide = slides[current];
+    mainImg.src = slide.src;
+    mainImg.alt = slide.alt;
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === current - 1));
+  }
+
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener("click", () => paint(i + 1));
+  });
+
+  gallery.querySelectorAll("[data-gallery-dir]").forEach((btn) => {
+    btn.addEventListener("click", () => paint(current + Number(btn.dataset.galleryDir)));
+  });
+}
 
 function initBranchSearch(input) {
   const grid = document.getElementById("branchGrid");
@@ -284,12 +315,26 @@ function renderMotos(list, motos) {
   wireFixedActions();
 }
 
+function slugify(value) {
+  return (value || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function buildMotoCard(moto) {
   const title = `Keller ${moto.model || ""} ${moto.version || ""}`.trim();
   const primaryImage = pickPreferredImage(moto.images);
   const image = primaryImage ? primaryImage.url : "";
   const altText = primaryImage?.altText || title;
-  const detailUrl = moto.urlSlug ? `modelos/${moto.urlSlug}/index.html` : "modelos.html";
+  // La API en vivo no siempre trae urlSlug: lo derivamos de model+version
+  // para que coincida con las carpetas modelos/<slug>/index.html.
+  const urlSlug = moto.urlSlug || slugify(`${moto.model || ""} ${moto.version || ""}`);
+  const detailUrl = urlSlug ? `modelos/${urlSlug}/index.html` : "modelos.html";
 
   const card = document.createElement("article");
   card.className = "product-card";

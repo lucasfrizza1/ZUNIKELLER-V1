@@ -332,9 +332,9 @@ function buildMotoCard(moto) {
   const image = primaryImage ? primaryImage.url : "";
   const altText = primaryImage?.altText || title;
   // La API en vivo no siempre trae urlSlug: lo derivamos de model+version
-  // para que coincida con las carpetas modelos/<slug>/index.html.
+  // para que coincida con las carpetas modelos/<slug>/ (URL limpia, sin index.html).
   const urlSlug = moto.urlSlug || slugify(`${moto.model || ""} ${moto.version || ""}`);
-  const detailUrl = urlSlug ? `modelos/${urlSlug}/index.html` : "modelos.html";
+  const detailUrl = urlSlug ? `modelos/${urlSlug}` : "modelos.html";
 
   const card = document.createElement("article");
   card.className = "product-card";

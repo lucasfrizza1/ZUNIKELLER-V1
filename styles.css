@@ -818,6 +818,34 @@ textarea {
   flex: 1;
 }
 
+.price-value {
+  font-weight: 800;
+  color: var(--red);
+}
+
+.price-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.product-price .price-value {
+  font-size: 1.35rem;
+}
+
+.product-price .price-label {
+  font-size: 0.7rem;
+}
+
 .product-card h3 {
   margin: 0;
   text-transform: uppercase;
@@ -1029,6 +1057,22 @@ textarea {
 .model-lead {
   margin: 0;
   color: var(--muted);
+}
+
+.model-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.model-price .price-value {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+.model-price .price-label {
+  font-size: 0.78rem;
 }
 
 .model-meta-grid {

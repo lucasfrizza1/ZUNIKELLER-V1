@@ -48,6 +48,7 @@
           <span class="product-badge" style="position: static;">ON OFF</span>
           <h1>Keller Miracle 200</h1>
           <p class="model-lead">Keller Miracle 200. Precio de la Keller Miracle financiada. Ficha técnica, precio y stock acá.</p>
+          <p class="model-price"><span class="price-value">$2.900.000</span><span class="price-label">Precio de lista</span></p>
           <div class="meta model-meta-grid">
             <span><strong>Motor:</strong> Monocilíndrico 4T (197 cc)</span>
             <span><strong>Combustible:</strong> Nafta &middot; 12 L</span>
@@ -117,30 +118,41 @@
 
   <script type="application/ld+json">
 {
-    "vehicleEngine":  {
-                          "engineDisplacement":  {
-                                                     "unitCode":  "CMQ",
-                                                     "value":  197,
-                                                     "@type":  "QuantitativeValue"
-                                                 },
-                          "fuelType":  "Nafta",
-                          "@type":  "EngineSpecification"
-                      },
-    "url":  "https://zunikeller.com/modelos/miracle-200",
-    "description":  "Keller Miracle 200. Precio de la Keller Miracle financiada. Ficha técnica, precio y stock acá.",
-    "@type":  "Motorcycle",
-    "@context":  "https://schema.org",
-    "name":  "Keller Miracle 200",
-    "image":  "https://i.ibb.co/0yGs2dsn/7d749283ed43.webp",
-    "brand":  {
-                  "name":  "Keller",
-                  "@type":  "Brand"
-              },
-    "weightTotal":  {
-                        "unitCode":  "KGM",
-                        "value":  130,
-                        "@type":  "QuantitativeValue"
-                    }
+    "@context": "https://schema.org",
+    "@type": ["Product", "Motorcycle"],
+    "name": "Keller Miracle 200",
+    "description": "Keller Miracle 200. Precio de la Keller Miracle financiada. Ficha técnica, precio y stock acá.",
+    "image": "https://i.ibb.co/0yGs2dsn/7d749283ed43.webp",
+    "url": "https://zunikeller.com/modelos/miracle-200",
+    "sku": "100505",
+    "brand": { "@type": "Brand", "name": "Keller" },
+    "vehicleEngine": {
+        "@type": "EngineSpecification",
+        "engineDisplacement": { "@type": "QuantitativeValue", "value": 197, "unitCode": "CMQ" },
+        "fuelType": "Nafta"
+    },
+    "weightTotal": { "@type": "QuantitativeValue", "value": 130, "unitCode": "KGM" },
+    "offers": {
+        "@type": "Offer",
+        "url": "https://zunikeller.com/modelos/miracle-200",
+        "price": "2900000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": { "@type": "Organization", "name": "ZuniKeller" }
+    }
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://zunikeller.com/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Modelos", "item": "https://zunikeller.com/modelos.html" },
+        { "@type": "ListItem", "position": 3, "name": "Keller Miracle 200", "item": "https://zunikeller.com/modelos/miracle-200" }
+    ]
 }
   </script>
 

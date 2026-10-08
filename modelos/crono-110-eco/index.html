@@ -50,6 +50,7 @@
           <span class="product-badge" style="position: static;">CUB</span>
           <h1>Keller Crono 110 Eco</h1>
           <p class="model-lead">Keller Crono 110 Eco. Precio de la Keller Crono financiada. Cotizá online al mejor precio hoy.</p>
+          <p class="model-price"><span class="price-value">$1.400.000</span><span class="price-label">Precio de lista</span></p>
           <div class="meta model-meta-grid">
             <span><strong>Motor:</strong> Monocilíndrico 4T (107 cc)</span>
             <span><strong>Combustible:</strong> Nafta &middot; 4 L</span>
@@ -119,30 +120,41 @@
 
   <script type="application/ld+json">
 {
-    "vehicleEngine":  {
-                          "engineDisplacement":  {
-                                                     "unitCode":  "CMQ",
-                                                     "value":  107,
-                                                     "@type":  "QuantitativeValue"
-                                                 },
-                          "fuelType":  "Nafta",
-                          "@type":  "EngineSpecification"
-                      },
-    "url":  "https://zunikeller.com/modelos/crono-110-eco",
-    "description":  "Keller Crono 110 Eco. Precio de la Keller Crono financiada. Cotizá online al mejor precio hoy.",
-    "@type":  "Motorcycle",
-    "@context":  "https://schema.org",
-    "name":  "Keller Crono 110 Eco",
-    "image":  "https://i.ibb.co/hJyXwnyq/73e845f746dd.webp",
-    "brand":  {
-                  "name":  "Keller",
-                  "@type":  "Brand"
-              },
-    "weightTotal":  {
-                        "unitCode":  "KGM",
-                        "value":  90,
-                        "@type":  "QuantitativeValue"
-                    }
+    "@context": "https://schema.org",
+    "@type": ["Product", "Motorcycle"],
+    "name": "Keller Crono 110 Eco",
+    "description": "Keller Crono 110 Eco. Precio de la Keller Crono financiada. Cotizá online al mejor precio hoy.",
+    "image": "https://i.ibb.co/hJyXwnyq/73e845f746dd.webp",
+    "url": "https://zunikeller.com/modelos/crono-110-eco",
+    "sku": "100500",
+    "brand": { "@type": "Brand", "name": "Keller" },
+    "vehicleEngine": {
+        "@type": "EngineSpecification",
+        "engineDisplacement": { "@type": "QuantitativeValue", "value": 107, "unitCode": "CMQ" },
+        "fuelType": "Nafta"
+    },
+    "weightTotal": { "@type": "QuantitativeValue", "value": 90, "unitCode": "KGM" },
+    "offers": {
+        "@type": "Offer",
+        "url": "https://zunikeller.com/modelos/crono-110-eco",
+        "price": "1400000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": { "@type": "Organization", "name": "ZuniKeller" }
+    }
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://zunikeller.com/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Modelos", "item": "https://zunikeller.com/modelos.html" },
+        { "@type": "ListItem", "position": 3, "name": "Keller Crono 110 Eco", "item": "https://zunikeller.com/modelos/crono-110-eco" }
+    ]
 }
   </script>
 

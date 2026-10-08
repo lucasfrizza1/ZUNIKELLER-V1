@@ -50,6 +50,7 @@
           <span class="product-badge" style="position: static;">CUB</span>
           <h1>Keller Crono 125 Tuning</h1>
           <p class="model-lead">Keller Crono 125 Tuning. Precio de la Keller Crono financiada. Financiación a tu medida disponible.</p>
+          <p class="model-price"><span class="price-value">$1.600.000</span><span class="price-label">Precio de lista</span></p>
           <div class="meta model-meta-grid">
             <span><strong>Motor:</strong> Monocilíndrico 4T (124 cc)</span>
             <span><strong>Combustible:</strong> Nafta &middot; 4 L</span>
@@ -122,30 +123,41 @@
 
   <script type="application/ld+json">
 {
-    "vehicleEngine":  {
-                          "engineDisplacement":  {
-                                                     "unitCode":  "CMQ",
-                                                     "value":  124,
-                                                     "@type":  "QuantitativeValue"
-                                                 },
-                          "fuelType":  "Nafta",
-                          "@type":  "EngineSpecification"
-                      },
-    "url":  "https://zunikeller.com/modelos/crono-125-tuning",
-    "description":  "Keller Crono 125 Tuning. Precio de la Keller Crono financiada. Financiación a tu medida disponible.",
-    "@type":  "Motorcycle",
-    "@context":  "https://schema.org",
-    "name":  "Keller Crono 125 Tuning",
-    "image":  "https://i.ibb.co/nNQ1dsDj/7d063aeb4d51.webp",
-    "brand":  {
-                  "name":  "Keller",
-                  "@type":  "Brand"
-              },
-    "weightTotal":  {
-                        "unitCode":  "KGM",
-                        "value":  98,
-                        "@type":  "QuantitativeValue"
-                    }
+    "@context": "https://schema.org",
+    "@type": ["Product", "Motorcycle"],
+    "name": "Keller Crono 125 Tuning",
+    "description": "Keller Crono 125 Tuning. Precio de la Keller Crono financiada. Financiación a tu medida disponible.",
+    "image": "https://i.ibb.co/nNQ1dsDj/7d063aeb4d51.webp",
+    "url": "https://zunikeller.com/modelos/crono-125-tuning",
+    "sku": "100507",
+    "brand": { "@type": "Brand", "name": "Keller" },
+    "vehicleEngine": {
+        "@type": "EngineSpecification",
+        "engineDisplacement": { "@type": "QuantitativeValue", "value": 124, "unitCode": "CMQ" },
+        "fuelType": "Nafta"
+    },
+    "weightTotal": { "@type": "QuantitativeValue", "value": 98, "unitCode": "KGM" },
+    "offers": {
+        "@type": "Offer",
+        "url": "https://zunikeller.com/modelos/crono-125-tuning",
+        "price": "1600000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": { "@type": "Organization", "name": "ZuniKeller" }
+    }
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://zunikeller.com/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Modelos", "item": "https://zunikeller.com/modelos.html" },
+        { "@type": "ListItem", "position": 3, "name": "Keller Crono 125 Tuning", "item": "https://zunikeller.com/modelos/crono-125-tuning" }
+    ]
 }
   </script>
 

@@ -6,6 +6,25 @@ const CONFIG = {
   fallbackUrl: "./motos.json",
 };
 
+// La API en vivo no siempre trae precio: lo completamos a mano por urlSlug
+// para que el precio se muestre siempre, venga la data de la API o del fallback.
+const PRICES = {
+  "crono-110-eco": 1400000,
+  "crono-110-full": 1600000,
+  "crono-125-tuning": 1600000,
+  "miracle-150": 2500000,
+  "stratus-150": 1900000,
+  "stratus-150-full": 2100000,
+  "sygnus-150": 2400000,
+  "miracle-200": 2900000,
+  "quasar-250": 5000000,
+  "exotic-150": 2500000,
+};
+
+// Modelos que la API ya trae (foto, specs) pero que todavía no tienen
+// ficha de detalle propia en el sitio: se muestran sin link a modelos/<slug>.
+const NO_DETAIL_PAGE = new Set(["exotic-150"]);
+
 document.addEventListener("DOMContentLoaded", () => {
   setActiveNavLink();
   wireFixedActions();
@@ -116,7 +135,12 @@ async function loadFeaturedMotos() {
   } catch (err) {
     motos = await fetchMotos(CONFIG.fallbackUrl);
   }
-  return motos.filter((m) => (m.brand || "").trim().toLowerCase() === "keller");
+  return motos
+    .filter((m) => (m.brand || "").trim().toLowerCase() === "keller")
+    .map((m) => {
+      const urlSlug = m.urlSlug || slugify(`${m.model || ""} ${m.version || ""}`);
+      return { ...m, price: m.price || PRICES[urlSlug] };
+    });
 }
 
 // Preferimos siempre una foto de costado (perfil): la API puede traer las
@@ -326,6 +350,12 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function formatPrice(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num) || num <= 0) return "";
+  return `$${num.toLocaleString("es-AR")}`;
+}
+
 function buildMotoCard(moto) {
   const title = `Keller ${moto.model || ""} ${moto.version || ""}`.trim();
   const primaryImage = pickPreferredImage(moto.images);
@@ -334,18 +364,21 @@ function buildMotoCard(moto) {
   // La API en vivo no siempre trae urlSlug: lo derivamos de model+version
   // para que coincida con las carpetas modelos/<slug>/ (URL limpia, sin index.html).
   const urlSlug = moto.urlSlug || slugify(`${moto.model || ""} ${moto.version || ""}`);
-  const detailUrl = urlSlug ? `modelos/${urlSlug}` : "modelos.html";
+  const hasDetailPage = Boolean(urlSlug) && !NO_DETAIL_PAGE.has(urlSlug);
+  const detailUrl = hasDetailPage ? `modelos/${urlSlug}` : "";
+  const priceLabel = formatPrice(moto.price);
+  const mediaContent = image ? `<img src="${image}" alt="${altText}" loading="lazy">` : '<div class="product-media-placeholder">Sin imagen</div>';
 
   const card = document.createElement("article");
   card.className = "product-card";
 
   card.innerHTML = `
-    <a class="product-media" href="${detailUrl}">
-      ${image ? `<img src="${image}" alt="${altText}" loading="lazy">` : '<div class="product-media-placeholder">Sin imagen</div>'}
-      <span class="product-badge">${moto.segment || moto.type || ""}</span>
-    </a>
+    ${hasDetailPage
+      ? `<a class="product-media" href="${detailUrl}">${mediaContent}<span class="product-badge">${moto.segment || moto.type || ""}</span></a>`
+      : `<div class="product-media">${mediaContent}<span class="product-badge">${moto.segment || moto.type || ""}</span></div>`}
     <div class="product-body">
-      <h3><a href="${detailUrl}">${title}</a></h3>
+      <h3>${hasDetailPage ? `<a href="${detailUrl}">${title}</a>` : title}</h3>
+      ${priceLabel ? `<p class="product-price"><span class="price-value">${priceLabel}</span><span class="price-label">Precio de lista</span></p>` : ""}
       <p class="product-desc">${moto.shortDescription || ""}</p>
       <div class="meta">
         <span><strong>Motor:</strong> ${moto.engine || "-"} (${moto.displacement || "-"})</span>
@@ -353,7 +386,7 @@ function buildMotoCard(moto) {
         <span><strong>Autonomía:</strong> ${moto.autonomy || "-"}</span>
         <span><strong>Peso:</strong> ${moto.weight ? `${moto.weight} kg` : "-"}</span>
       </div>
-      <a class="product-link" href="${detailUrl}">Ver ficha técnica completa</a>
+      ${hasDetailPage ? `<a class="product-link" href="${detailUrl}">Ver ficha técnica completa</a>` : ""}
     </div>
     <div class="product-actions">
       <a class="button" href="credito.html#formulario">Simular crédito</a>

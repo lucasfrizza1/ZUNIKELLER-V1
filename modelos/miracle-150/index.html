@@ -49,6 +49,7 @@
           <span class="product-badge" style="position: static;">ON OFF</span>
           <h1>Keller Miracle 150</h1>
           <p class="model-lead">Keller Miracle 150. Precio de la Keller Miracle financiada. Planes de pago exclusivos en cuotas.</p>
+          <p class="model-price"><span class="price-value">$2.500.000</span><span class="price-label">Precio de lista</span></p>
           <div class="meta model-meta-grid">
             <span><strong>Motor:</strong> Monocilíndrico 4T (149 cc)</span>
             <span><strong>Combustible:</strong> Nafta &middot; 12 L</span>
@@ -118,30 +119,41 @@
 
   <script type="application/ld+json">
 {
-    "vehicleEngine":  {
-                          "engineDisplacement":  {
-                                                     "unitCode":  "CMQ",
-                                                     "value":  149,
-                                                     "@type":  "QuantitativeValue"
-                                                 },
-                          "fuelType":  "Nafta",
-                          "@type":  "EngineSpecification"
-                      },
-    "url":  "https://zunikeller.com/modelos/miracle-150",
-    "description":  "Keller Miracle 150. Precio de la Keller Miracle financiada. Planes de pago exclusivos en cuotas.",
-    "@type":  "Motorcycle",
-    "@context":  "https://schema.org",
-    "name":  "Keller Miracle 150",
-    "image":  "https://i.ibb.co/pmWHf4p/a77a96cbb9f3.webp",
-    "brand":  {
-                  "name":  "Keller",
-                  "@type":  "Brand"
-              },
-    "weightTotal":  {
-                        "unitCode":  "KGM",
-                        "value":  120,
-                        "@type":  "QuantitativeValue"
-                    }
+    "@context": "https://schema.org",
+    "@type": ["Product", "Motorcycle"],
+    "name": "Keller Miracle 150",
+    "description": "Keller Miracle 150. Precio de la Keller Miracle financiada. Planes de pago exclusivos en cuotas.",
+    "image": "https://i.ibb.co/pmWHf4p/a77a96cbb9f3.webp",
+    "url": "https://zunikeller.com/modelos/miracle-150",
+    "sku": "100501",
+    "brand": { "@type": "Brand", "name": "Keller" },
+    "vehicleEngine": {
+        "@type": "EngineSpecification",
+        "engineDisplacement": { "@type": "QuantitativeValue", "value": 149, "unitCode": "CMQ" },
+        "fuelType": "Nafta"
+    },
+    "weightTotal": { "@type": "QuantitativeValue", "value": 120, "unitCode": "KGM" },
+    "offers": {
+        "@type": "Offer",
+        "url": "https://zunikeller.com/modelos/miracle-150",
+        "price": "2500000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": { "@type": "Organization", "name": "ZuniKeller" }
+    }
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://zunikeller.com/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Modelos", "item": "https://zunikeller.com/modelos.html" },
+        { "@type": "ListItem", "position": 3, "name": "Keller Miracle 150", "item": "https://zunikeller.com/modelos/miracle-150" }
+    ]
 }
   </script>
 
